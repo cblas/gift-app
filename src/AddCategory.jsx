@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export const AddCategory = ({setCategories}) => {
+export const AddCategory = ({onCategoryValue}) => {
   const [category, setCategory] = useState('');
 
   const handleInput = (e) => {
@@ -9,7 +9,12 @@ export const AddCategory = ({setCategories}) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setCategories(categories => [...categories, category]);
+
+    //OPTION  1:
+    //setCategories(categories => [...categories, category]);
+    //OPTION2:
+    onCategoryValue(category);
+
     setCategory('');
   };
 

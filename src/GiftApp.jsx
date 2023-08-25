@@ -1,22 +1,13 @@
-import { useState } from "react"
+import { useState } from "react";
+import {AddCategory} from './AddCategory';
 
 export const GiftApp = () => {
   const [categories, setCategories] = useState(['Jose', 'Emi']);
-  const [name, setName] = useState('');
-
-  const handleInputName = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleAddName = () => {
-    setCategories([...categories, name]);
-  };
 
   return (
     <>
         <h2>Gift App</h2>
-        <input type="text" onChange={handleInputName}/>
-        <button onClick={handleAddName}>Add name</button>
+        <AddCategory setCategories={setCategories}/>
         <ol>
             {categories.map((category) => {
                 return <li key={category}>{category}</li>

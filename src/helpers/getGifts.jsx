@@ -4,10 +4,11 @@ export const getGiftsAsync = async (category) => {
     const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${category}`);
     const { data } = await response.json();
 
+    console.log(data)
     const gifts = data.map(img => ({
        id: img.id,
        title: img.title,
-       url: img.url,
+       url: img.images.original.url,
     }));
 
     console.log(gifts);

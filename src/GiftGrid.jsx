@@ -1,25 +1,30 @@
 import  { useEffect, useState } from 'react'
 import {getGiftsAsync} from './helpers/getGifts'
 import {GridItem} from './GridItem'
+import { useGetImages } from './hooks/useGetImages'
 
 
  export const GiftGrid = ({category}) => {
-  const [images, setImages] = useState([]);
+  //OPTION1:
+  // const [images, setImages] = useState([]);
 
-  const getImages = async () => {
-    const gifts = await getGiftsAsync(category);
-    setImages(gifts);
-  }
+  // const getImages = async () => {
+  //   const gifts = await getGiftsAsync(category);
+  //   setImages(gifts);
+  // }
 
-  useEffect(()=>{
-    getImages();
+  // useEffect(()=>{
+  //   getImages();
 
-  },[category])
+  // },[category])
   
+  //OPTION2: USE CUSTOM HOOK:
+  const {images, isLoading} = useGetImages(category)
 
   return (
     <>
       <h3>{category}</h3>
+      {isLoading && (<h4>Loading content...</h4>)}
       <div className='card-grid'>
             {
               images.map(image => {

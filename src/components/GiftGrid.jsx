@@ -1,7 +1,5 @@
-import  { useEffect, useState } from 'react'
-import {getGiftsAsync} from './helpers/getGifts'
 import {GridItem} from './GridItem'
-import { useGetImages } from './hooks/useGetImages'
+import { useGetImages } from '../hooks/useGetImages'
 
 
  export const GiftGrid = ({category}) => {

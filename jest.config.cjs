@@ -1,0 +1,6 @@
+// see reference about jest config: https://gist.github.com/Klerith/ca7e57fae3c9ab92ad08baadc6c26177
+
+module.exports = {
+    testEnvironment: 'jest-environment-jsdom',
+    setupFiles: ['./jest.setup.js']
+}
